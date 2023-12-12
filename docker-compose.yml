@@ -4,6 +4,7 @@ services:
   mauticdb:
     image: percona/percona-server:5.7
     container_name: mauticdb
+    restart: always
     volumes:
       - ./mautic/mysql_data:/var/lib/mysql
     environment:
@@ -13,6 +14,7 @@ services:
   mautic:
     image: mautic/mautic:v4
     container_name: mautic
+    restart: always
     links:
       - mauticdb:mysql
     depends_on:
